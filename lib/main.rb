@@ -1,8 +1,8 @@
 class Game
     attr_writer :a1, :a2, :a3,
                 :b1, :b2, :b3,
-                :c1, :c2, :c3
-    attr_accessor :turn
+                :c1, :c2, :c3, :board
+    attr_accessor :turn, :board
     def initialize
         @turn = ['player']
         @board = {
@@ -32,42 +32,35 @@ class Game
         return false
     end
 end
-​
-​
-​
-system('cls')
+
 puts '| ################################## |'
-puts '        Welcome to Tic-Tac-Toe'
+puts '|        Welcome to Tic-Tac-Toe'
 puts '| ################################## |'
 puts ''
 puts '| 1: ONE PLAYER GAME'
 puts '| 2: PLAYER VS COMPUTER'
-​
 puts '| ################################## |'
 puts ''
-​
+
 game = Game.new
-​
 getting_players = true
 while getting_players
     n_players = gets.chomp
-    
     case n_players
     when '2'
-      puts "| You have chosen to play against me... ok. "
+      puts "You have chosen to play against me... ok"
       getting_players = false
     when '1'
-      puts "| You have chosen to play by yourselve, you'll get a friend someday don't worry "
+      puts "| You have chose to play by yourself, don't worry you'll have friends some day... maybe"
       getting_players = false
     else
-      puts "| I don't know what you're saying, repeat please"
+      puts "| I don't know what you are saying, please repeat again |"
     end
 end
-​
+
 gaming = true
-​
+
 while gaming
-​
     puts '| ################################## |'
     puts '| ################################## |'
     puts '| ################################## |'
@@ -81,32 +74,27 @@ while gaming
     puts '| ################################## |'
     puts '| ################################## |'
     puts ''
+    puts game.board.keys
     if game.turn.last == 'player'
         puts "| It's Your turn Human, tell me your move |"
         puts "|     Or enter: 'end' for leaving         |"
         puts ''
         move = gets.chomp
         if move == 'end'
-          gaming == false
-          break
-        elsif @board.keys.include? move.to_sym
-            puts "| You just played #{move}"
-            turn.push('computer')
-            puts turn
+            gaming == false
+            break
+        elsif game.board.keys.include? move.to_sym
+            puts "| You just played #{move} |"
+            game.turn.push('computer')
+            puts game.turn
         else
             puts "| I don't know what you're saying, repeat please"
         end
     else
         puts "| It's MY turn Human, prepare for this: |"
-        move = @board.keys.sample
+        move = game.board.keys.sample
         puts "| I just played #{move}"
-        turn.push('computer')
-        puts turn
+        game.turn.push('player')
+        puts game.turn
     end
-​
-   
-    
 end
-puts 'yeah ok wherever'
-​
-​
