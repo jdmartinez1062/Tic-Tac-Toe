@@ -6,10 +6,26 @@ class Game
     def initialize
         @turn = ['player']
         @board = {
-            a1: false, a2: false, a3: false,
-            b1: false, b2: false, b3: false,
-            c1: false, c2: false, c3: false
+            a1: '-', a2: '-', a3: '-',
+            b1: '-', b2: '-', b3: '-',
+            c1: '-', c2: '-', c3: '-'
             }
+    end
+    def print_board
+
+        puts '| ################################## |'
+        puts '| ################################## |'
+        puts '| ################################## |'
+        puts ''
+        puts '  | 1 | 2 | 3 |'
+        puts "a | #{@board[:a1]} | #{@board[:a2]} | #{@board[:a3]} |"
+        puts "b | #{@board[:b1]} | #{@board[:b2]} | #{@board[:b3]} |"
+        puts "c | #{@board[:c3]} | #{@board[:c2]} | #{@board[:c3]} |"
+        puts ''
+        puts '| ################################## |'
+        puts '| ################################## |'
+        puts '| ################################## |'
+        puts ''
     end
     def somebody_win?(move)
         return 'x' if @board[:a1] == 'x' and @board[:a2] == 'x' and @board[:a3] == 'x'
@@ -61,20 +77,7 @@ end
 gaming = true
 
 while gaming
-    puts '| ################################## |'
-    puts '| ################################## |'
-    puts '| ################################## |'
-    puts ''
-    puts '  | 1 | 2 | 3 |'
-    puts 'a | - | - | - |'
-    puts 'b | - | - | - |'
-    puts 'c | - | - | - |'
-    puts ''
-    puts '| ################################## |'
-    puts '| ################################## |'
-    puts '| ################################## |'
-    puts ''
-    puts game.board.keys
+    game.print_board
     if game.turn.last == 'player'
         puts "| It's Your turn Human, tell me your move |"
         puts "|     Or enter: 'end' for leaving         |"
@@ -85,16 +88,19 @@ while gaming
             break
         elsif game.board.keys.include? move.to_sym
             puts "| You just played #{move} |"
+            game.board[move.to_sym] = 'x'
             game.turn.push('computer')
-            puts game.turn
+            
         else
             puts "| I don't know what you're saying, repeat please"
         end
-    else
+    end
+    if game.turn.last == 'computer'
         puts "| It's MY turn Human, prepare for this: |"
         move = game.board.keys.sample
         puts "| I just played #{move}"
+        game.board[move.to_sym] = '0'
         game.turn.push('player')
-        puts game.turn
+        
     end
 end
