@@ -55,9 +55,7 @@ while gaming
     else
         puts "| I don't know what you're saying, repeat please"
     end
-    
-end
-winning = false
+    winning = false
 if  winning==true
   puts "#{player} won" 
   puts "Want to play another game? (y/n)"
@@ -70,3 +68,4 @@ if  winning==true
 
 end
   puts 'yeah ok wherever'
+end
