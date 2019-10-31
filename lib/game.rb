@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 require_relative 'board.rb'
 require_relative 'player.rb'
-require_relative 'main.rb'
+
 class Game
   
   attr_accessor :turn, :board, :gaming
-  def initialize (players, dificulty = nil, turn = 'player')
-    @turn = turn
+  def initialize (players, dificulty = nil)
+    @turn = :p1
     @board = Board.new
     case players
     when '2'
@@ -18,8 +18,6 @@ class Game
     else
       false
     end
-
-
     @gaming = true
   end
 

@@ -1,19 +1,18 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require_relative 'board.rb'
-require_relative 'player.rb'
-require_relative 'game.rb'
+require_relative '../lib/board.rb'
+require_relative '../lib/player.rb'
+require_relative '../lib/game.rb'
+
 
 system('cls')
-
 puts '| ################################## |'
 puts '        Welcome to Tic-Tac-Toe'
 puts '| ################################## |'
 puts ''
 puts '| 1: ONE PLAYER GAME'
 puts '| 2: TWO PLAYER GAME'
-​
 puts '| ################################## |'
 puts ''
 
@@ -36,10 +35,13 @@ while getting_players
       case difficulty
       when 'easy'
         game = Game.new(n_players, difficulty)
+        getting_difficulty = false
       when 'medium'
         game = Game.new(n_players, difficulty)
+        getting_difficulty = false
       when 'hard'
         game = Game.new(n_players, difficulty)
+        getting_difficulty = false
       else
         puts "Input 'easy','medium' or 'hard' to set your difficulty"
       end
@@ -50,60 +52,55 @@ while getting_players
     puts "| I don't know what you're saying, repeat please"
   end
 end
-​
-turn = ['player']
-gaming = true
-​
-while gaming
-  ​
-  puts '| ################################## |'
-  puts '| ################################## |'
-  puts '| ################################## |'
-  puts ''
-  puts '  | 1 | 2 | 3 |'
-  puts 'a | - | - | - |'
-  puts 'b | - | - | - |'
-  puts 'c | - | - | - |'
-  puts ''
-  puts '| ################################## |'
-  puts '| ################################## |'
-  puts '| ################################## |'
-  puts ''
-  puts "| It's Your turn Human, tell me your move |"
-  puts "| Or enter 'end' for leaving |"
-  ​
-  move = gets.chomp
-  if move == 'end'
-    game.gaming = false
-  elsif move.start_with?('a') || move.start_with?('b') || move.start_with?('c')
-    puts "| You just played #{move}"
-  else
-    puts "| I don't know what you're saying, repeat please"
-  end
-  while gaming
-    game.print_board
-    if game.turn.last == 'player'
+ 
+case n_players
+when '1'
+  game.board.print_board
+  while game.gaming
+    
+
+    if game.turn == :p1
+      
+      puts ''
       puts "| It's Your turn Human, tell me your move |"
       puts "|     Or enter: 'end' for leaving         |"
       puts ''
       move = gets.chomp
       if move == 'end'
-        @gaming = false
-        elsif game.board.keys.include? move.to_sym
-        puts "| You just played #{move} |"
-        game.board[move.to_sym] = 'x'
-        game.turn.push('computer')
-  
+        game.gaming = false
+      elsif game.board.key.include? move.to_sym
+        game.board.key[move.to_sym] = 'x'
+        game.turn = :p2
+        system('cls')
+        puts "| You just played #{move}"
+        game.board.print_board
+        puts '|           PRESS ANY KEY             |'
+        any_key = gets.chomp
+        
       else
         puts "| I don't know what you're saying, repeat please"
       end
+      
+    elsif game.turn == :p2
+      
+      getting_computer_move = true
+      while getting_computer_move
+        move = game.board.key.keys.sample
+        if game.board.key[move.to_sym] == '-'
+          game.board.key[move.to_sym] = '0'
+          system('cls')
+          puts ''
+          puts "| It's MY turn Human, prepare for this: |"
+          puts "| I just played #{move}"
+          puts ''
+          game.board.print_board
+          puts '|           PRESS ANY KEY             |'
+          any_key = gets.chomp
+          game.turn = :p1
+          getting_computer_move = false
+        end
+      
+      end
     end
-    next unless game.turn.last == 'computer'
-  
-    puts "| It's MY turn Human, prepare for this: |"
-    move = game.board.keys.sample
-    puts "| I just played #{move}"
-    game.board[move.to_sym] = '0'
-    game.turn.push('player')
   end
 end

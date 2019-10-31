@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 require_relative 'game.rb'
 require_relative 'player.rb'
-require_relative 'main.rb'
+
 
 class Board
-  attr_writer :a1, :a2, :a3,
+  attr_accessor :a1, :a2, :a3,
               :b1, :b2, :b3,
-              :c1, :c2, :c3
+              :c1, :c2, :c3, :key
 
   def initialize
     @turn = ['player']
-    @board = {
+    @key = {
       a1: '-', a2: '-', a3: '-',
       b1: '-', b2: '-', b3: '-',
       c1: '-', c2: '-', c3: '-'
@@ -23,15 +23,16 @@ class Board
     puts '| ################################## |'
     puts '| ################################## |'
     puts ''
-    puts '  | 1 | 2 | 3 |'
-    puts "a | #{@board[:a1]} | #{@board[:a2]} | #{@board[:a3]} |"
-    puts "b | #{@board[:b1]} | #{@board[:b2]} | #{@board[:b3]} |"
-    puts "c | #{@board[:c1]} | #{@board[:c2]} | #{@board[:c3]} |"
+    puts '| ########     | 1 | 2 | 3 |'
+    puts "| ########   a | #{@key[:a1]} | #{@key[:a2]} | #{@key[:a3]} |"
+    puts "| ########   b | #{@key[:b1]} | #{@key[:b2]} | #{@key[:b3]} |"
+    puts "| ########   c | #{@key[:c1]} | #{@key[:c2]} | #{@key[:c3]} |"
     puts ''
     puts '| ################################## |'
     puts '| ################################## |'
     puts '| ################################## |'
     puts ''
+    
     end
 
   def somebody_win?(_move)
