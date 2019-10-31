@@ -1,12 +1,12 @@
 # frozen_string_literal: true
+
 require_relative 'game.rb'
 require_relative 'player.rb'
 
-
 class Board
   attr_accessor :a1, :a2, :a3,
-              :b1, :b2, :b3,
-              :c1, :c2, :c3, :key
+                :b1, :b2, :b3,
+                :c1, :c2, :c3, :key
 
   def initialize
     @turn = ['player']
@@ -32,8 +32,7 @@ class Board
     puts '| ################################## |'
     puts '| ################################## |'
     puts ''
-    
-    end
+  end
 
   def somebody_win?(_move)
     if (@board[:a1] == 'x') && (@board[:a2] == 'x') && (@board[:a3] == 'x')
