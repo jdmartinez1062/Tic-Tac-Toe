@@ -48,7 +48,7 @@ while gaming
 ​
     move = gets.chomp
     if move == 'end'
-      gaming == false
+      gaming = false
       break
     elsif move.start_with?('a') || move.start_with?('b') || move.start_with?('c')
         puts "| You just played #{move}"
@@ -57,4 +57,16 @@ while gaming
     end
     
 end
-puts 'yeah ok wherever'
+winning = false
+if  winning==true
+  puts "#{player} won" 
+  puts "Want to play another game? (y/n)"
+
+  newgame=gets.chomp
+  #if newgame==y
+  #Game.new 
+  #else
+  #kills the console 
+
+end
+  puts 'yeah ok wherever'
