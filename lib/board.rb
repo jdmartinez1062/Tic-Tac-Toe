@@ -2,7 +2,7 @@
 
 require_relative 'game.rb'
 require_relative 'player.rb'
-
+# Board class holds the empty and taken positions and checks for a winner
 class Board
   attr_accessor :a1, :a2, :a3,
                 :b1, :b2, :b3,
@@ -33,23 +33,20 @@ class Board
   end
 
   def somebody_win?
-    return 'x' if (key[:a1] == 'x') && (key[:a2] == 'x') && (key[:a3] == 'x')
-    return 'x' if (key[:b1] == 'x') && (key[:b2] == 'x') && (key[:b3] == 'x')
-    return 'x' if (key[:c1] == 'x') && (key[:c2] == 'x') && (key[:c3] == 'x')
-    return 'x' if (key[:a1] == 'x') && (key[:b2] == 'x') && (key[:c3] == 'x')
-    return 'x' if (key[:c1] == 'x') && (key[:b2] == 'x') && (key[:a3] == 'x')
-    return 'x' if (key[:a1] == 'x') && (key[:b1] == 'x') && (key[:c1] == 'x')
-    return 'x' if (key[:b2] == 'x') && (key[:a2] == 'x') && (key[:c2] == 'x')
-    return 'x' if (key[:c3] == 'x') && (key[:b3] == 'x') && (key[:a3] == 'x')
-    return '0' if (key[:a1] == '0') && (key[:a2] == '0') && (key[:a3] == '0')
-    return '0' if (key[:b1] == '0') && (key[:b2] == '0') && (key[:b3] == '0')
-    return '0' if (key[:c1] == '0') && (key[:c2] == '0') && (key[:c3] == '0')
-    return '0' if (key[:a1] == '0') && (key[:b2] == '0') && (key[:c3] == '0')
-    return '0' if (key[:c1] == '0') && (key[:b2] == '0') && (key[:a3] == '0')
-    return '0' if (key[:a1] == '0') && (key[:b1] == '0') && (key[:c1] == '0')
-    return '0' if (key[:b2] == '0') && (key[:a2] == '0') && (key[:c2] == '0')
-    return '0' if (key[:c3] == '0') && (key[:b3] == '0') && (key[:a3] == '0')
-
+    dictionary = {
+      d2: [key[:b1], key[:b2], key[:b3]],
+      d1: [key[:a1], key[:a2], key[:a3]],
+      d3: [key[:c1], key[:c2], key[:c3]],
+      d4: [key[:a1], key[:b2], key[:c3]],
+      d5: [key[:c1], key[:b2], key[:a3]],
+      d6: [key[:a1], key[:b1], key[:c1]],
+      d7: [key[:b2], key[:a2], key[:c2]],
+      d8: [key[:c3], key[:b3], key[:a3]]
+    }
+    dictionary.values.each do |v|
+      return 'x' if v.all?('x')
+      return '0' if v.all?('0')
+    end
     false
   end
 end

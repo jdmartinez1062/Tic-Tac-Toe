@@ -23,8 +23,8 @@ while getting_players
 
   case n_players
   when '2'
-    
-    system('cls')
+
+    system('cls') || system('clear')
     game = Game.new(n_players)
     getting_players = false
   when '1'
@@ -36,15 +36,15 @@ while getting_players
       when 'easy'
         game = Game.new(n_players, difficulty)
         getting_difficulty = false
-        system('cls')
+        system('cls') || system('clear')
       when 'medium'
         game = Game.new(n_players, difficulty)
         getting_difficulty = false
-        system('cls')
+        system('cls') || system('clear')
       when 'hard'
         game = Game.new(n_players, difficulty)
         getting_difficulty = false
-        system('cls')
+        system('cls') || system('clear')
       else
         puts "Input 'easy','medium' or 'hard' to set your difficulty"
       end
