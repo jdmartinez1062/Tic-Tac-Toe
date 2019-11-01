@@ -5,8 +5,12 @@ require_relative '../lib/board.rb'
 require_relative '../lib/player.rb'
 require_relative '../lib/game.rb'
 
+
+
 def playergame_1(game)
-  game.board.print_board
+  putter = lambda {|x| puts x}
+  getter = lambda {gets.chomp}
+  game.board.print_board(putter)
   while game.gaming
 
     if game.turn == :p1
@@ -27,7 +31,7 @@ def playergame_1(game)
         game.turn = :p2
         system('cls')
         puts "| You just played #{move}"
-        game.board.print_board
+        game.board.print_board(putter)
         puts '|           PRESS ANY KEY             |'
         gets.chomp
 
@@ -48,7 +52,7 @@ def playergame_1(game)
         puts "| It's MY turn Human, prepare for this: |"
         puts "| I just played #{move}"
         puts ''
-        game.board.print_board
+        game.board.print_board(putter)
         puts '|           PRESS ANY KEY             |'
         gets.chomp
         game.turn = :p1
