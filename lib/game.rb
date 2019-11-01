@@ -21,6 +21,14 @@ class Game
     @gaming = true
   end
 
+  def human_turn()
+
+  end
+  def computer_turn
+
+  end
+
+
   def playergame_1(outputter,inputer)
     
     self.board.print_board(outputter)
