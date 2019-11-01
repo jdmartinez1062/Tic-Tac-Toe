@@ -41,14 +41,14 @@ class Board
     return 'x' if (key[:a1] == 'x') && (key[:b1] == 'x') && (key[:c1] == 'x')
     return 'x' if (key[:b2] == 'x') && (key[:a2] == 'x') && (key[:c2] == 'x')
     return 'x' if (key[:c3] == 'x') && (key[:b3] == 'x') && (key[:a3] == 'x')
-    return 'o' if (key[:a1] == 'o') && (key[:a2] == 'o') && (key[:a3] == 'o')
-    return 'o' if (key[:b1] == 'o') && (key[:b2] == 'o') && (key[:b3] == 'o')
-    return 'o' if (key[:c1] == 'o') && (key[:c2] == 'o') && (key[:c3] == 'o')
-    return 'o' if (key[:a1] == 'o') && (key[:b2] == 'o') && (key[:c3] == 'o')
-    return 'o' if (key[:c1] == 'o') && (key[:b2] == 'o') && (key[:a3] == 'o')
-    return 'o' if (key[:a1] == 'o') && (key[:b1] == 'o') && (key[:c1] == 'o')
-    return 'o' if (key[:b2] == 'o') && (key[:a2] == 'o') && (key[:c2] == 'o')
-    return 'o' if (key[:c3] == 'o') && (key[:b3] == 'o') && (key[:a3] == 'o')
+    return '0' if (key[:a1] == '0') && (key[:a2] == '0') && (key[:a3] == '0')
+    return '0' if (key[:b1] == '0') && (key[:b2] == '0') && (key[:b3] == '0')
+    return '0' if (key[:c1] == '0') && (key[:c2] == '0') && (key[:c3] == '0')
+    return '0' if (key[:a1] == '0') && (key[:b2] == '0') && (key[:c3] == '0')
+    return '0' if (key[:c1] == '0') && (key[:b2] == '0') && (key[:a3] == '0')
+    return '0' if (key[:a1] == '0') && (key[:b1] == '0') && (key[:c1] == '0')
+    return '0' if (key[:b2] == '0') && (key[:a2] == '0') && (key[:c2] == '0')
+    return '0' if (key[:c3] == '0') && (key[:b3] == '0') && (key[:a3] == '0')
 
     false
   end

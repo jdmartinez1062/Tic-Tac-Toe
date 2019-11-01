@@ -11,7 +11,7 @@ class Game
     case players
     when '2'
       @players = { p1: Player.new(true),
-                   p2: Player.new(true) }
+                   p2: Player.new(true)}
     when '1'
       @players = { p1: Player.new(true),
                    p2: Player.new(false, dificulty) }
@@ -29,7 +29,7 @@ class Game
                 end
   end
 
-  def human_turn(outputter, inputer)
+  def human_turn(outputter, inputer, player)
     move = inputer.call
     if move == 'end'
       self.gaming = false
@@ -37,20 +37,22 @@ class Game
       unless board.key[move.to_sym] == '-'
         return outputter.call('|       That position is taken        |')
       end
-
-      board.key[move.to_sym] = 'x'
+      if player == :p1
+        board.key[move.to_sym] = 'x'
+      else
+        board.key[move.to_sym] = '0'
+      end
       next_player(turn)
       system('cls')
       board.print_board(outputter)
       outputter.call("| You just played #{move}")
-      outputter.call('|           PRESS ANY ENTER             |')
-      inputer.call
+      
     else
       outputter.call("| I don't know what you're saying, repeat please")
     end
   end
 
-  def computer_turn(outputter, inputer)
+  def computer_turn(outputter)
     getting_computer_move = true
     while getting_computer_move
       move = board.key.keys.sample
@@ -63,8 +65,7 @@ class Game
        "| It's MY turn Human, prepare for this: |",
        "| I just played #{move}",
        ''].each { |x| outputter.call(x) }
-      outputter.call('|           PRESS ANY ENTER             |')
-      inputer.call
+      sleep(1.5)
       system('cls')
       board.print_board(outputter)
       self.turn = :p1
@@ -78,14 +79,16 @@ class Game
       outputter.call('Player one wins')
       true
     when '0'
-      if players[:p2].human == true
+      if @players[:p2].human == true
         outputter.call('Player two wins')
       else
         outputter.call('I wins, punny human')
       end
       true
     when false
-      if board.key.values.none? == '-'
+      
+      if board.key.values.none?{|x| x == '-'}
+        
         outputter.call('Draw')
         true
       end
@@ -99,9 +102,9 @@ class Game
 
         ['', "| It's Your turn Human, tell me your move |",
          "|     Or enter: 'end' for leaving         |", ''].each { |x| outputter.call(x) }
-        human_turn(outputter, inputer)
+        human_turn(outputter, inputer,turn)
       elsif turn == :p2
-        computer_turn(outputter, inputer)
+        computer_turn(outputter)
       end
       self.gaming = false if winner(outputter)
     end
@@ -114,7 +117,7 @@ class Game
 
         ['', "| It's Your turn Player One, tell me your move |",
          "|     Or enter: 'end' for leaving         |", ''].each { |x| outputter.call(x) }
-        human_turn(outputter, inputer)
+        human_turn(outputter, inputer, turn)
 
       elsif turn == :p2
 
@@ -122,7 +125,7 @@ class Game
          "| It's Your turn player 2, tell me your move |",
          "|     Or enter: 'end' to surrender      |",
          ''].each { |x| outputter.call(x) }
-        human_turn(outputter, inputer)
+        human_turn(outputter, inputer, turn)
         self.gaming = false if winner(outputter)
       end
     end

@@ -23,8 +23,9 @@ while getting_players
 
   case n_players
   when '2'
-    puts "| You have chosen #{n_players} "
-    game = Game.new(n_players) # tell who will play first
+    
+    system('cls')
+    game = Game.new(n_players)
     getting_players = false
   when '1'
     puts "| You have chosen #{n_players}, choose your difficulty:"
