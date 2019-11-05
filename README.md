@@ -113,19 +113,19 @@ The object of Tic Tac Toe is to occupy three boxes in a row. You play on a three
 3. Select the position you want to play according to the grid, rows go from `a-c` and colums `1-3`, example:
 
 
-<div style="display:flex; justify-content:center">
+<p align = "center">
   <a href="https://github.com/jdmartinez1062/Tic-Tac-Toe">
     <img src="imgs/input.jpg">
   </a>
-</div>
+</p>
 
 Yields
 
-<div style="display:flex; justify-content:center">
+<p align = "center">
   <a href="https://github.com/jdmartinez1062/Tic-Tac-Toe">
     <img src="imgs/result.jpg">
   </a>
-</div>
+</p>
 
 
   #### Two Players
