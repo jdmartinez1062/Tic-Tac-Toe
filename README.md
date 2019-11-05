@@ -1,6 +1,4 @@
-<<<<<<< Updated upstream
-# Tic-Tac-Toe
-=======
+
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -162,4 +160,3 @@ Project Link: [https://github.com/jdmartinez1062/Tic-Tac-Toe](https://github.com
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: imgs/screenshot.jpg
 
->>>>>>> Stashed changes
