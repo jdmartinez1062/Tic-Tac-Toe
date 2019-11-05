@@ -49,11 +49,11 @@
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project
-<div style="display:flex; justify-content:center">
+<p align = "center">
   <a href="https://github.com/jdmartinez1062/Tic-Tac-Toe">
     <img src="imgs/screenshot.jpg">
   </a>
-</div>
+</p>
 
 [Microverse](https://www.microverse.org/) Third Ruby Section Main Curriculum Project "OOP(Object Oriented Programming)"
 
