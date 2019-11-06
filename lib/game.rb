@@ -29,6 +29,8 @@ class Game
                 end
   end
 
+  private
+
   def human_turn(outputter, inputer, player)
     move = inputer.call
     if move == 'end'
@@ -71,6 +73,8 @@ class Game
     end
   end
 
+  public
+
   def winner(outputter)
     case board.somebody_win?
     when 'x'
@@ -90,6 +94,21 @@ class Game
         outputter.call('Draw')
         true
       end
+    end
+  end
+
+  def winner_mock
+    case board.somebody_win?
+    when 'x'
+      'Player one wins'
+    when '0'
+      if @players[:p2].human == true
+        'Player two wins'
+      else
+        'I wins, punny human'
+      end
+    when false
+      'Draw' if board.key.values.none? { |x| x == '-' }
     end
   end
 
