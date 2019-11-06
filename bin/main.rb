@@ -56,9 +56,11 @@ while gaming
         puts "| I don't know what you're saying, repeat please"
     end
     winning = false
-if  winning==true
-  puts "#{player} won" 
+if  winning==true || draw == true
+  puts "#{player} won" if win
+  puts "It's a draw!" if draw
   puts "Want to play another game? (y/n)"
+end
 
   newgame=gets.chomp
   #if newgame==y
