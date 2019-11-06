@@ -17,3 +17,5 @@ describe 'Tic-tac-toe' do
         end
     end
 end
+def foo
+end
