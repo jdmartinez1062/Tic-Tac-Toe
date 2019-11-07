@@ -132,14 +132,14 @@ describe 'Tic-tac-toe' do
       expect(game1.next_player(game1.turn)).to eql(:p2)
     end
     it 'Next player for a single player game after machine turn ' do
-      game1.turn=:p2
+      game1.turn = :p2
       expect(game1.next_player(game1.turn)).to eql(:p1)
     end
     it 'Next player for a two player game at start' do
       expect(game2.next_player(game2.turn)).to eql(:p2)
     end
     it 'Next player for a single player game after machine turn ' do
-      game2.turn=:p2
+      game2.turn = :p2
       expect(game1.next_player(game2.turn)).to eql(:p1)
     end
   end
