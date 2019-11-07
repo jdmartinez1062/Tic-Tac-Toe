@@ -1,4 +1,4 @@
-#env ruby 
+#!/usr/bin/env ruby
 system('cls')
 puts '| ################################## |'
 puts '        Welcome to Tic-Tac-Toe'
