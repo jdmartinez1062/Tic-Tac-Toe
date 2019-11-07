@@ -47,7 +47,7 @@ describe 'Tic-tac-toe' do
     end
   end
 
-  describe '#winner' do
+  describe '#winner_mock' do
     let(:game1) { Game.new('1') }
     let(:game2) { Game.new('2') }
     let(:draw1) do
@@ -108,6 +108,39 @@ describe 'Tic-tac-toe' do
     it 'tells you if the game is a draw in a two player game ' do
       draw2
       expect(game2.winner_mock).to eql('Draw')
+    end
+  end
+
+  describe '#next_player' do
+    let(:game1) { Game.new('1') }
+    let(:game2) { Game.new('2') }
+    let(:draw1) do
+      game1.board.key = {
+        a1: 'x', a2: '0', a3: 'x',
+        b1: '0', b2: 'x', b3: '0',
+        c1: '0', c2: 'x', c3: '0'
+      }
+    end
+    let(:draw2) do
+      game2.board.key = {
+        a1: 'x', a2: '0', a3: 'x',
+        b1: '0', b2: 'x', b3: '0',
+        c1: '0', c2: 'x', c3: '0'
+      }
+    end
+    it 'Next player for a single player game at start ' do
+      expect(game1.next_player(game1.turn)).to eql(:p2)
+    end
+    it 'Next player for a single player game after machine turn ' do
+      game1.turn=:p2
+      expect(game1.next_player(game1.turn)).to eql(:p1)
+    end
+    it 'Next player for a two player game at start' do
+      expect(game2.next_player(game2.turn)).to eql(:p2)
+    end
+    it 'Next player for a single player game after machine turn ' do
+      game2.turn=:p2
+      expect(game1.next_player(game2.turn)).to eql(:p1)
     end
   end
 end
