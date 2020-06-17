@@ -4,9 +4,11 @@
 require_relative '../lib/board.rb'
 require_relative '../lib/player.rb'
 require_relative '../lib/game.rb'
+
 putter = ->(x) { puts x }
 getter = -> { gets.chomp }
-system('cls')
+
+system('cls') || system('clear')
 puts '| ################################## |'
 puts '        Welcome to Tic-Tac-Toe'
 puts '| ################################## |'
