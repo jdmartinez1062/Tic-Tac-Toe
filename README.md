@@ -138,6 +138,7 @@ Yields
 ## Contact
 
 Juan David Martínez Cubillos - jd.martinez1062@gmail.com
+
 Jonathan Marín - mesielepush@gmail.com
 
 Project Link: [https://github.com/jdmartinez1062/Tic-Tac-Toe](https://github.com/jdmartinez1062/Tic-Tac-Toe)
