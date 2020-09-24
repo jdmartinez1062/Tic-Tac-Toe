@@ -108,11 +108,12 @@ In order to run the game you have two options:
 The object of Tic Tac Toe is to occupy three boxes in a row. You play on a three by three game board. The first player is known as X and the second is 0. Players alternate placing Xs and 0s on the game board until either opponent has three in a row or the board is full. X (first player) always goes first. If no one has three in a row when the board is full, the stalemate is called a cat game(Draw).
 
   #### Single Player
-  To Play a single player game against the computer do the next steps:
+
+  To Play a single-player game against the computer do the next steps:
     
 1. After executing the game input `1`.
-2. Select the dificulty of the computer by writing `easy`, `medium` or `hard`.
-3. Select the position you want to play according to the grid, rows go from `a-c` and colums `1-3`, example:
+2. Select the difficulty of the computer by writing `easy`, `medium` or `hard`.
+3. Select the position you want to play according to the grid, rows go from `a-c` and columns `1-3`, example:
 
 
 <p align = "center">
@@ -132,7 +133,7 @@ Yields
 
   #### Two Players
 1. After executing the game input `2`.
-3. Each player select the position they want to play, as done in the One Player case.
+3. Each player selects the position they want to play, as done in the One Player case.
 
 
 ## Contact
