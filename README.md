@@ -35,16 +35,18 @@
 
 ## Table of Contents
 
-- [About the Project](#about-the-project)
+- [Table of Contents](#table-of-contents)
+- [About The Project](#about-the-project)
   - [Built With](#built-with)
 - [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
 - [Usage](#usage)
-  * [Run](#run)
-  * [How to Play](#how-to-play)
+  - [Run](#run)
+  - [How to Play](#how-to-play)
+    - [Single Player](#single-player)
+    - [Two Players](#two-players)
 - [Contact](#contact)
-- [Acknowledgements](#acknowledgements)
 
 <!-- ABOUT THE PROJECT -->
 
@@ -136,7 +138,7 @@ Yields
 ## Contact
 
 Juan David Martínez Cubillos - jd.martinez1062@gmail.com
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Jonathan Marín - mesielepush@gmail.com
 
 Project Link: [https://github.com/jdmartinez1062/Tic-Tac-Toe](https://github.com/jdmartinez1062/Tic-Tac-Toe)
 
